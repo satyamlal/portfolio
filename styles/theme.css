@@ -1,5 +1,4 @@
 :root {
-    /* Edit shared visual controls here. */
     --black: #080909;
     --panel: #101111;
     --white: #ededed;
@@ -9,7 +8,7 @@
     --body-font: 'IBM Plex Mono', monospace;
     --heading-font: 'Roboto Mono', monospace;
     --body-letter-spacing: 0;
-    --heading-letter-spacing: -.08em;
+    --heading-letter-spacing: .02em;
     --hover-text: #fff;
     --hover-background: var(--orange);
     --hover-border: var(--orange);

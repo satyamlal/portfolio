@@ -19,6 +19,8 @@ html {
 
 body {
     margin: 0;
+    padding-left: 50px;
+    padding-right: 50px;
     background: var(--black);
     color: var(--white);
     font-family: var(--body-font);
@@ -70,8 +72,10 @@ a {
 }
 
 .brand {
-    font-weight: 700;
-    letter-spacing: .04em;
+    font-variant-caps: all-petite-caps;
+    font-size: large;
+    font-weight: 900;
+    letter-spacing: .08em;
 }
 
 .brand span,
@@ -102,6 +106,10 @@ h2 span,
     min-height: 34px;
 }
 
+.desktop-navbar a {
+    gap: 8px;
+}
+
 .site-header nav a svg,
 .social-buttons a svg {
     width: 16px;
@@ -120,6 +128,10 @@ h2 span,
 .social-buttons a:hover {
     background: var(--orange);
     color: #000;
+}
+
+.site-header .desktop-navbar a:hover {
+    color: #fff;
 }
 
 .button:hover {
