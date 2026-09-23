@@ -21,8 +21,9 @@ body {
     margin: 0;
     background: var(--black);
     color: var(--white);
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: var(--body-font);
     font-size: 12px;
+    letter-spacing: var(--body-letter-spacing);
     background-image: linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
     background-size: 32px 32px;
 }
@@ -162,9 +163,9 @@ main {
 h1,
 h2 {
     margin: 0;
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--heading-font);
     font-weight: 700;
-    letter-spacing: -.08em;
+    letter-spacing: var(--heading-letter-spacing);
     text-transform: uppercase;
 }
 
@@ -419,7 +420,7 @@ p {
 }
 
 .project-card:hover {
-    box-shadow: 7px 7px 0 rgba(255, 61, 14, .65);
+    box-shadow: var(--hover-shadow);
     transform: translate(-2px, -2px);
 }
 

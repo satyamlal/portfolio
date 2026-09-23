@@ -1,0 +1,17 @@
+:root {
+    /* Edit shared visual controls here. */
+    --black: #080909;
+    --panel: #101111;
+    --white: #ededed;
+    --muted: #929292;
+    --orange: #FF3D00;
+    --line: #272727;
+    --body-font: 'IBM Plex Mono', monospace;
+    --heading-font: 'Roboto Mono', monospace;
+    --body-letter-spacing: 0;
+    --heading-letter-spacing: -.08em;
+    --hover-text: #fff;
+    --hover-background: var(--orange);
+    --hover-border: var(--orange);
+    --hover-shadow: 7px 7px 0 rgba(255, 61, 0, .65);
+}
