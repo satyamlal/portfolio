@@ -1,76 +1,106 @@
+/* Load the two fonts used by body text and headings. */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
 
 :root {
+    /* Core brand colors. */
     --black: #080909;
     --panel: #101111;
     --white: #ededed;
     --muted: #929292;
-    --orange: #FF3D00;
+    --orange: #ff3d00;
     --line: #272727;
+
+    /* Desktop spacing and typography controls. */
+    --body-padding-inline: 3.125rem;
+    --section-padding-inline: clamp(1.125rem, 4vw, 3.25rem);
+    --stats-value-size: 1.75rem;
+    --stats-label-size: .5625rem;
+    --hero-content-padding-top: clamp(6rem, 19vh, 10rem);
+    --hero-content-padding-bottom: 1.625rem;
+    --hero-stats-padding-top: 2.375rem;
+    --hero-stats-padding-bottom: 3rem;
 }
 
+/* Use predictable sizing for every element. */
 * {
     box-sizing: border-box;
 }
 
+/* Enable smooth in-page anchor navigation. */
 html {
     scroll-behavior: smooth;
 }
 
+/* Global page canvas, text defaults, and background grid. */
 body {
     margin: 0;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-inline: var(--body-padding-inline);
     background: var(--black);
     color: var(--white);
     font-family: var(--body-font);
-    font-size: 12px;
+    font-size: .75rem;
     letter-spacing: var(--body-letter-spacing);
-    background-image: linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
-    background-size: 32px 32px;
+    background-image: linear-gradient(rgba(255, 255, 255, .025) .0625rem, transparent .0625rem), linear-gradient(90deg, rgba(255, 255, 255, .025) .0625rem, transparent .0625rem);
+    background-size: 2rem 2rem;
 }
 
+/* Remove default link decoration while preserving inherited text color. */
 a {
     color: inherit;
     text-decoration: none;
 }
 
+/* Selection colors follow the orange brand color. */
 ::selection {
     color: #000;
     background: var(--orange);
 }
 
+/* Keep the page shell at least as tall as the viewport. */
 .portfolio-shell {
     min-height: 100vh;
 }
 
+/* Reusable rem-based padding helpers for legacy Bootstrap layouts. */
+.app-inline-padding {
+    padding-inline: 1rem;
+}
+
+.app-inline-none {
+    padding-inline: 0;
+}
+
+/* Desktop site header layout. */
 .site-header {
     position: relative;
     z-index: 10;
-    height: 70px;
-    border-bottom: 1px solid var(--line);
+    height: 4.375rem;
+    border-bottom: .0625rem solid var(--line);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: min(100%, 1280px);
+    width: min(100%, 80rem);
     margin: auto;
-    padding: 0 clamp(18px, 4vw, 52px);
+    padding: 0 var(--section-padding-inline);
 }
 
+/* Hide mobile navigation controls on desktop. */
 .menu-toggle,
 .mobile-menu {
     display: none;
 }
 
+/* Shared horizontal layout for brand, navigation, social links, and actions. */
 .brand,
 .site-header nav,
 .social-buttons,
 .action-row {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: .625rem;
 }
 
+/* Brand name styling. */
 .brand {
     font-variant-caps: all-petite-caps;
     font-size: large;
@@ -78,6 +108,7 @@ a {
     letter-spacing: .08em;
 }
 
+/* Orange accent text used by labels, headings, and project identifiers. */
 .brand span,
 h3 span,
 h2 span,
@@ -86,36 +117,41 @@ h2 span,
     color: var(--orange);
 }
 
+/* Shared borders, padding, and label typography for interactive controls. */
 .site-header nav a,
 .social-buttons a,
 .button,
 .email,
 .project-card a {
-    border: 1px solid var(--line);
-    padding: 8px 12px;
-    font-size: 10px;
+    border: .0625rem solid var(--line);
+    padding: .5rem .75rem;
+    font-size: .625rem;
     letter-spacing: .08em;
 }
 
+/* Keep navigation and social buttons centered with stable dimensions. */
 .site-header nav a,
 .social-buttons a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 34px;
-    min-height: 34px;
+    min-width: 2.125rem;
+    min-height: 2.125rem;
 }
 
+/* Space each desktop navigation icon from its label. */
 .desktop-navbar a {
-    gap: 8px;
+    gap: .5rem;
 }
 
+/* Navigation and social icon dimensions. */
 .site-header nav a svg,
 .social-buttons a svg {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
 }
 
+/* Default hover border and accent color for links and buttons. */
 .site-header nav a:hover,
 .social-buttons a:hover,
 .button:hover,
@@ -124,54 +160,89 @@ h2 span,
     border-color: var(--orange);
 }
 
+/* Orange hover surface for navigation and social buttons. */
 .site-header nav a:hover,
 .social-buttons a:hover {
     background: var(--orange);
     color: #000;
 }
 
-.site-header .desktop-navbar a:hover {
+/* Keep desktop navigation and hero social icons readable on orange hover. */
+.site-header .desktop-navbar a:hover,
+.action-row .social-buttons a:hover {
     color: #fff;
 }
 
+/* Button hover surface and text color. */
 .button:hover {
     background: var(--orange);
     color: #fff;
 }
 
+/* Separate the contact link from neighboring navigation items. */
 .site-header .contact-link {
-    margin-left: 10px;
+    margin-left: .625rem;
 }
 
+/* Constrain the main content width on large screens. */
 main {
-    width: min(100%, 1280px);
+    width: min(100%, 80rem);
     margin: auto;
 }
 
+/* Shared section frame spacing and divider. */
 .section-frame {
     position: relative;
-    padding: clamp(38px, 5vw, 64px) clamp(18px, 4vw, 52px) clamp(46px, 6vw, 72px);
-    border-bottom: 1px solid var(--line);
+    padding: clamp(2.375rem, 5vw, 4rem) var(--section-padding-inline) clamp(2.875rem, 6vw, 4.5rem);
+    border-bottom: .0625rem solid var(--line);
 }
 
+/* The hero owns its height; its inner wrappers own their spacing. */
+.hero {
+    min-height: 100svh;
+    padding: 0;
+}
+
+/* Independent horizontal padding for the hero text and stats boxes. */
+.hero-content,
+.hero-stats {
+    padding-inline: var(--section-padding-inline);
+}
+
+/* hero content box controls. */
+.hero-content {
+    padding-top: var(--hero-content-padding-top);
+    padding-bottom: var(--hero-content-padding-bottom);
+}
+
+/* stats box controls. */
+.hero-stats {
+    padding-top: var(--hero-stats-padding-top);
+    padding-bottom: var(--hero-stats-padding-bottom);
+}
+
+/* Hide the large section number inside the hero. */
 .hero .section-label b {
     display: none;
 }
 
+/* Section label alignment and typography. */
 .section-label {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
-    font-size: 10px;
+    margin-bottom: 1.25rem;
+    font-size: .625rem;
     letter-spacing: .18em;
 }
 
+/* Decorative section number. */
 .section-label b {
     color: #252525;
-    font-size: 58px;
+    font-size: 3.625rem;
     line-height: .5;
 }
 
+/* Shared heading reset and heading font. */
 h1,
 h2 {
     margin: 0;
@@ -181,174 +252,198 @@ h2 {
     text-transform: uppercase;
 }
 
+/* Hero heading size and spacing. */
 h1 {
-    font-size: clamp(58px, 9vw, 122px);
+    font-size: clamp(3.625rem, 9vw, 7.625rem);
     line-height: .95;
-    margin-bottom: 28px;
+    margin-bottom: 1.75rem;
 }
 
+/* Animated orange cursor after the typed name. */
 h1 b {
     color: var(--orange);
     animation: blink 1s steps(2, start) infinite;
 }
 
+/* Secondary heading size and spacing. */
 h2 {
-    font-size: clamp(38px, 6vw, 72px);
+    font-size: clamp(2.375rem, 6vw, 4.5rem);
     line-height: 1;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
 }
 
+/* Tertiary heading size and spacing. */
 h3 {
-    font-size: 16px;
+    font-size: 1rem;
     text-transform: uppercase;
-    margin: 0 0 16px;
+    margin: 0 0 1rem;
 }
 
+/* Paragraph color and line height. */
 p {
     color: var(--muted);
     line-height: 1.65;
 }
 
+/* Hero description block. */
 .hero-copy {
-    max-width: 550px;
-    border-left: 1px solid var(--line);
-    padding-left: 14px;
-    margin-bottom: 26px;
+    max-width: 34.375rem;
+    border-left: .0625rem solid var(--line);
+    padding-left: .875rem;
+    margin-bottom: 1.625rem;
 }
 
+/* Three-column statistics layout. */
 .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 38px;
-    border-top: 1px solid var(--line);
+    margin-top: 0;
+    border-top: .0625rem solid var(--line);
 }
 
+/* Individual statistic cell spacing and divider. */
 .stats div {
-    padding: 20px 24px;
-    border-right: 1px solid var(--line);
+    padding: 1.25rem 1.5rem;
+    border-right: .0625rem solid var(--line);
 }
 
+/* Main statistic value styling. */
 .stats strong {
     display: block;
     color: var(--white);
-    font-size: 28px;
+    font-size: var(--stats-value-size);
 }
 
-.stats span,
-.experience-heading span,
-.experience-heading b {
+/* Statistic label styling. */
+.stats>div>span:not(.stat-suffix) {
     display: block;
-    color: var(--muted);
-    font-size: 9px;
+    color: var(--white);
+    font-size: var(--stats-label-size);
     letter-spacing: .09em;
-    margin-top: 5px;
+    margin-top: .3125rem;
 }
 
+/* Statistic number and suffix can be overridden per Stat component. */
+.stat-number {
+    color: var(--white);
+}
+
+.stat-suffix {
+    display: inline;
+    color: var(--orange);
+    font-size: 1rem;
+    margin-left: .125rem;
+}
+
+/* Introductory copy used by content sections. */
 .section-intro {
-    max-width: 620px;
+    max-width: 38.75rem;
     text-transform: uppercase;
     letter-spacing: .08em;
 }
 
+/* Legacy skill-row spacing. */
 .skills-list {
-    margin-top: 44px;
+    margin-top: 2.75rem;
 }
 
+/* Legacy two-column skill row layout. */
 .skill-row {
     display: grid;
     grid-template-columns: 1.15fr .85fr;
-    gap: 70px;
-    padding: 25px 0;
-    border-top: 1px solid var(--line);
+    gap: 4.375rem;
+    padding: 1.5625rem 0;
+    border-top: .0625rem solid var(--line);
     opacity: 0;
     animation: none;
 }
 
-.skill-row:nth-child(2) {
-    animation-delay: .08s;
-}
-
-.skill-row:nth-child(3) {
-    animation-delay: .16s;
-}
-
-.skill-row:nth-child(4) {
-    animation-delay: .24s;
-}
-
-.skill-row:nth-child(5) {
-    animation-delay: .32s;
-}
-
+/* Reveal legacy skill rows after their section becomes visible. */
 .section-frame.is-visible .skill-row {
     animation: rise-in .4s ease both;
 }
 
+/* Skill row paragraph sizing. */
 .skill-row p {
-    margin: 6px 0;
-    max-width: 570px;
+    margin: .375rem 0;
+    max-width: 35.625rem;
 }
 
+/* Flexible icon-tag layout. */
 .tag-list {
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
-    gap: 8px;
-    padding-top: 4px;
+    gap: .5rem;
+    padding-top: .25rem;
 }
 
+/* Skill section tag spacing. */
+.skills-grid {
+    margin-top: 2.75rem;
+}
+
+/* Individual skill tag appearance. */
 .tag-list span {
-    border: 1px solid var(--line);
-    padding: 6px 8px;
+    border: .0625rem solid var(--line);
+    padding: .375rem .5rem;
     color: #aaa;
-    font-size: 9px;
+    font-size: .5625rem;
     transition: color .2s ease, border-color .2s ease, background-color .2s ease;
 }
 
+/* Shared icon sizing for tags, navigation, and social controls. */
 .tag-list svg,
 .site-header nav svg,
 .social-buttons svg {
-    width: 16px;
-    height: 16px;
-    vertical-align: -3px;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: -.1875rem;
 }
 
+/* Smaller icon size inside skill tags. */
 .tag-list svg {
-    width: 14px;
-    height: 14px;
+    width: .875rem;
+    height: .875rem;
 }
 
+/* Skill tag hover state. */
 .tag-list span:hover {
     color: var(--orange);
     border-color: var(--orange);
     background: rgba(255, 61, 14, .08);
 }
 
+/* Two-column proficiency meters on desktop. */
 .proficiency-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px 44px;
-    margin-top: 42px;
+    gap: 1.5rem 2.75rem;
+    margin-top: 2.625rem;
 }
 
+/* Proficiency label and percentage alignment. */
 .meter div {
     display: flex;
     justify-content: space-between;
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: .625rem;
 }
 
+/* Orange proficiency percentage. */
 .meter b {
     color: var(--orange);
 }
 
+/* Empty proficiency track. */
 .meter i {
     display: block;
-    height: 3px;
+    height: .1875rem;
     background: #202020;
-    margin-top: 10px;
+    margin-top: .625rem;
 }
 
+/* Filled proficiency track. */
 .meter em {
     display: block;
     height: 100%;
@@ -357,21 +452,25 @@ p {
     transform: scaleX(0);
 }
 
+/* Animate proficiency tracks when the section appears. */
 .section-frame.is-visible .meter em {
     animation: fill-bar .4s ease both;
 }
 
+/* Shared card surface for education, experience, and projects. */
 .education-card,
 .experience-card,
 .project-card {
     background: rgba(20, 20, 20, .82);
-    border: 1px solid var(--line);
+    border: .0625rem solid var(--line);
 }
 
+/* Education card spacing. */
 .education-card {
-    padding: 25px;
+    padding: 1.5625rem;
 }
 
+/* Education title and metadata. */
 .education-card strong {
     display: block;
 }
@@ -379,137 +478,222 @@ p {
 .education-card span {
     color: var(--muted);
     display: block;
-    margin-top: 10px;
+    margin-top: .625rem;
 }
 
+/* Two-column experience and project card grids. */
 .experience-grid,
 .project-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: .625rem;
 }
 
+/* Experience card padding. */
 .experience-card {
-    padding: 20px;
+    padding: 1.25rem;
 }
 
+/* Experience heading logo, company, role, and date layout. */
 .experience-heading {
     display: flex;
-    gap: 12px;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 15px;
+    gap: .75rem;
+    border-bottom: .0625rem solid var(--line);
+    padding-bottom: .9375rem;
 }
 
+/* Experience company logo sizing. */
 .experience-heading img {
-    width: 28px;
-    height: 28px;
+    width: 1.75rem;
+    height: 1.75rem;
     object-fit: contain;
     background: #fff;
-    padding: 2px;
+    padding: .125rem;
 }
 
+/* Experience company name. */
 .experience-heading strong {
     display: block;
     text-transform: uppercase;
 }
 
-.experience-heading span {
+/* Clickable company name hover color. */
+.company-link:hover {
     color: var(--orange);
 }
 
+/* Experience role text. */
+.experience-heading span {
+    display: block;
+    color: var(--orange);
+    font-size: .5625rem;
+    letter-spacing: .09em;
+    margin-top: .3125rem;
+}
+
+/* Experience date text. */
 .experience-heading b {
+    display: block;
     color: #c6a20d;
+    font-size: .5625rem;
+    letter-spacing: .09em;
+    margin-top: .3125rem;
 }
 
+/* Experience description spacing. */
 .experience-card p {
-    margin-bottom: 0;
+    margin-bottom: .75rem;
 }
 
+/* Brand design link list inside an experience card. */
+.design-links {
+    margin: 0 0 1rem;
+    padding-left: 1rem;
+    color: var(--white);
+}
+
+/* Spacing between brand design links. */
+.design-links li {
+    margin-bottom: .375rem;
+}
+
+/* Brand design link hover color. */
+.design-links a:hover {
+    color: var(--orange);
+}
+
+/* Secondary text used by the view-designs label. */
+.design-links a span {
+    color: var(--muted);
+    font-size: .5625rem;
+    margin-left: .25rem;
+}
+
+/* Keep Live Demo and GitHub actions on one wrapping row. */
+.experience-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+/* Live Demo and GitHub action button appearance. */
+.live-demo {
+    display: inline-block;
+    border: .0625rem solid var(--line);
+    padding: .375rem .5rem;
+    color: var(--white);
+    font-size: .5625rem;
+    letter-spacing: .08em;
+}
+
+/* Live Demo and GitHub hover surface. */
+.live-demo:hover {
+    color: #fff;
+    border-color: var(--orange);
+    background: var(--orange);
+}
+
+/* Project card size and hover animation. */
 .project-card {
-    padding: 20px;
-    min-height: 190px;
+    padding: 1.25rem;
+    min-height: 11.875rem;
     transition: box-shadow .2s ease, border-color .2s ease, transform .2s ease;
 }
 
+/* Project card lift and shadow on hover. */
 .project-card:hover {
     box-shadow: var(--hover-shadow);
-    transform: translate(-2px, -2px);
+    transform: translate(-.125rem, -.125rem);
 }
 
+/* Project identifier typography. */
 .project-card small {
-    font-size: 9px;
+    font-size: .5625rem;
 }
 
+/* Project title divider and spacing. */
 .project-card h3 {
-    margin: 12px 0;
-    font-size: 15px;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 13px;
+    margin: .75rem 0;
+    font-size: .9375rem;
+    border-bottom: .0625rem solid var(--line);
+    padding-bottom: .8125rem;
 }
 
+/* Reserve space for project descriptions. */
 .project-card p {
-    min-height: 65px;
+    min-height: 4.0625rem;
 }
 
+/* Project action links. */
 .project-card a {
     display: inline-block;
-    margin-right: 7px;
-    font-size: 9px;
-    padding: 6px 8px;
+    margin-right: .4375rem;
+    font-size: .5625rem;
+    padding: .375rem .5rem;
 }
 
+/* Project action icon sizing. */
 .project-card a img {
-    width: 11px;
-    height: 11px;
-    vertical-align: -1px;
+    width: .6875rem;
+    height: .6875rem;
+    vertical-align: -.0625rem;
     filter: invert(1);
 }
 
+/* Contact section desktop columns. */
 .contact-section {
     display: grid;
-    grid-template-columns: 1fr 220px;
-    gap: 50px;
+    grid-template-columns: 1fr 13.75rem;
+    gap: 3.125rem;
 }
 
+/* Contact section label position. */
 .contact-section .section-label {
     position: absolute;
-    inset: 74px 34px auto;
+    inset: 4.625rem 2.125rem auto;
 }
 
+/* Contact content top offset. */
 .contact-section>div:nth-of-type(2) {
-    padding-top: 55px;
+    padding-top: 3.4375rem;
 }
 
+/* Contact heading size. */
 .contact-section h2 {
-    font-size: clamp(42px, 6vw, 78px);
+    font-size: clamp(2.625rem, 6vw, 4.875rem);
 }
 
+/* Email action link. */
 .email {
     display: inline-block;
-    margin: 16px 0;
+    margin: 1rem 0;
     transition: color .2s ease, background-color .2s ease, border-color .2s ease;
 }
 
+/* Email hover surface. */
 .email:hover {
     background: var(--orange);
     border-color: var(--orange);
     color: #fff;
 }
 
+/* Contact portrait dimensions and treatment. */
 .portrait {
-    width: 190px;
-    height: 190px;
-    border: 1px solid var(--line);
+    width: 11.875rem;
+    height: 11.875rem;
+    border: .0625rem solid var(--line);
     object-fit: cover;
     filter: grayscale(1);
     align-self: center;
 }
 
+/* Page-load animation for the header and hero. */
 .site-header,
 .hero {
     animation: rise-in .3s ease both;
 }
 
+/* Hide section children until their section enters the viewport. */
 .section-frame:not(.hero)>* {
     opacity: 0;
     animation: none;
@@ -520,22 +704,10 @@ p {
     animation: rise-in .3s ease .08s both;
 }
 
-.section-frame>*:nth-child(2) {
-    animation-delay: .12s;
-}
-
-.section-frame>*:nth-child(3) {
-    animation-delay: .16s;
-}
-
-.section-frame>*:nth-child(4) {
-    animation-delay: .2s;
-}
-
 @keyframes rise-in {
     from {
         opacity: 0;
-        transform: translateY(18px);
+        transform: translateY(1.125rem);
     }
 
     to {
@@ -567,6 +739,7 @@ p {
     }
 }
 
+/* Reduced-motion accessibility preference. */
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -579,48 +752,86 @@ p {
     }
 }
 
-@media (max-width:700px) {
+/* Mobile-only design tokens and layout overrides. */
+@media (max-width: 43.75rem) {
+    :root {
+        /* Mobile spacing and typography controls. */
+        --body-padding-inline: 0.125rem;
+        --section-padding-inline: 1.125rem;
+        --stats-value-size: 1.3125rem;
+        --stats-label-size: .5625rem;
+
+        --hero-content-padding-top: clamp(1rem, 12vh, 6rem);
+        --hero-content-padding-bottom: 0;
+        --hero-stats-padding-top: 0;
+        --hero-stats-padding-bottom: 0;
+    }
+
+    /* Smaller mobile body text. */
     body {
-        font-size: 11px;
+        font-size: .6875rem;
     }
 
+    /* Mobile header height and horizontal padding. */
     .site-header {
-        height: 58px;
-        padding: 0 18px;
+        height: 3.625rem;
+        padding-inline: var(--section-padding-inline);
     }
 
+    /* Replace desktop navigation with the mobile menu trigger. */
     .site-header nav {
         display: none;
     }
 
+    /* Mobile hero viewport sizing. */
+    .hero {
+        min-height: calc(100svh - 3.625rem);
+    }
+
+    /* Mobile hero heading size. */
+    h1 {
+        font-size: 3.3125rem;
+    }
+
+    /* Mobile stats spacing. */
+    .stats {
+        margin-top: 18rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+
+    /* Mobile stat cell padding. */
+    .stats div {
+        padding: 1rem .75rem;
+    }
+
+    /* Mobile menu trigger button. */
     .menu-toggle {
         display: inline-flex;
-        width: 36px;
-        height: 36px;
-        padding: 8px;
+        width: 2.25rem;
+        height: 2.25rem;
+        padding: .5rem;
         flex-direction: column;
         justify-content: center;
-        gap: 4px;
-        border: 1px solid var(--line);
+        gap: .25rem;
+        border: .0625rem solid var(--line);
         background: transparent;
         color: var(--white);
         cursor: pointer;
     }
 
+    /* Lines inside the mobile menu trigger. */
     .menu-toggle span {
         display: block;
-        width: 16px;
-        height: 1px;
+        width: 1rem;
+        height: .0625rem;
         background: currentColor;
         transition: transform .2s ease, opacity .2s ease;
     }
 
-    .menu-toggle.is-open {
-        border-color: var(--muted);
-    }
-
+    /* Mobile menu trigger open-state transforms. */
     .menu-toggle.is-open span:first-child {
-        transform: translateY(5px) rotate(45deg);
+        transform: translateY(.3125rem) rotate(45deg);
     }
 
     .menu-toggle.is-open span:nth-child(2) {
@@ -628,9 +839,10 @@ p {
     }
 
     .menu-toggle.is-open span:last-child {
-        transform: translateY(-5px) rotate(-45deg);
+        transform: translateY(-.3125rem) rotate(-45deg);
     }
 
+    /* Mobile dropdown panel. */
     .mobile-menu {
         position: absolute;
         display: block;
@@ -638,87 +850,76 @@ p {
         left: 0;
         right: 0;
         background: rgba(16, 17, 17, .98);
-        border: 1px solid var(--line);
+        border: .0625rem solid var(--line);
         border-top: 0;
     }
 
+    /* Mobile dropdown links. */
     .mobile-menu-link {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        min-height: 48px;
-        padding: 0 24px;
-        border-top: 1px solid var(--line);
-        font-size: 12px;
+        min-height: 3rem;
+        padding: 0 1.5rem;
+        border-top: .0625rem solid var(--line);
+        font-size: .75rem;
         font-weight: 600;
     }
 
+    /* Mobile dropdown hover state. */
     .mobile-menu-link:hover {
         color: var(--orange);
         background: rgba(255, 61, 0, .08);
     }
 
+    /* Mobile dropdown icon size. */
     .mobile-menu-link svg {
-        width: 16px;
-        height: 16px;
+        width: 1rem;
+        height: 1rem;
     }
 
+    /* Mobile section number size. */
     .section-label b {
-        font-size: 42px;
+        font-size: 2.625rem;
     }
 
-    .hero {
-        min-height: calc(100svh - 58px);
-        padding-top: clamp(6rem, 19vh, 10rem);
-        padding-bottom: clamp(2rem, 7vh, 4rem);
-    }
-
-    h1 {
-        font-size: 53px;
-    }
-
-    .stats {
-        margin-top: 40px;
-    }
-
-    .stats div {
-        padding: 16px 12px;
-    }
-
-    .stats strong {
-        font-size: 21px;
-    }
-
+    /* Stack content grids into one column on mobile. */
     .skill-row,
     .proficiency-grid,
     .experience-grid,
     .project-grid,
     .contact-section {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 1.25rem;
     }
 
+    /* Mobile legacy skill row padding. */
     .skill-row {
-        padding: 24px 0;
+        padding: 1.5rem 0;
     }
 
+    /* Remove extra tag padding after stacking. */
     .tag-list {
         padding-top: 0;
     }
 
+    /* Mobile contact label position. */
     .contact-section .section-label {
-        inset: 38px 18px auto;
+        inset: 2.375rem 1.125rem auto;
     }
 
+    /* Mobile contact content offset. */
     .contact-section>div:nth-of-type(2) {
-        padding-top: 52px;
+        padding-top: 3.25rem;
     }
 
+    /* Smaller mobile portrait. */
     .portrait {
-        width: 130px;
-        height: 130px;
+        width: 8.125rem;
+        height: 8.125rem;
     }
 
+    /* Allow hero actions to wrap on narrow screens. */
     .action-row {
         flex-wrap: wrap;
     }

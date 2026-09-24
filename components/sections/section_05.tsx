@@ -1,8 +1,16 @@
-import { experience } from "../../portfolio";
+import { Icon } from "@iconify/react/dist/iconify.js";
 import { SectionLabel, SectionProps } from "./shared";
 
-const companyLogo: Record<string, string> = { "Duseca Software": "/img/icons/common/duseca_software_logo.jpeg", "Meganos Software": "/img/icons/common/meganos.png", "Bleed-AI": "/img/icons/common/bleedAI.jpg", ZRTechnologies: "/img/icons/common/zrtech.jpeg" };
-
 export default function Section05({ sectionRef, className }: SectionProps) {
-  return <section ref={sectionRef} className={className}><SectionLabel number="05" /><h2>EXPERIENCE<span>.</span></h2><div className="experience-grid">{experience.map(item => <article className="experience-card" key={item.company}><div className="experience-heading"><img src={companyLogo[item.company] || item.companyLogo} alt={`${item.company} logo`} /><div><strong>{item.company}</strong><span>{item.role}</span><b>{item.date}</b></div></div><p>{item.desc}</p></article>)}</div></section>;
+  const skills = [
+    ["JavaScript", "logos:javascript"], ["TypeScript", "logos:typescript"],
+    ["React", "logos:react"], ["Next", "logos:nextjs-icon"], ["RUST", "logos:rust"],
+    ["Solana", "simple-icons:solana"], ["Anchor", "simple-icons:anchor"], ["MongoDB", "logos:mongodb"],
+    ["PostgreSQL", "logos:postgresql"], ["Docker", "logos:docker-icon"], ["AWS", "logos:aws"],
+    ["REST APIs", "carbon:api-1"], ["WebSocket", "mdi:connection"], ["Redis", "logos:redis"],
+    ["GitHub Actions", "logos:github-actions"], ["Linux", "logos:linux"], ["CI/CD", "carbon:continuous-deployment"],
+    ["GitHub", "akar-icons:github-fill"],
+  ];
+
+  return <section ref={sectionRef} className={className}><SectionLabel number="05" /><h2>SKILLS<span>.</span></h2><p className="section-intro">Tools and technologies I use to build reliable, scalable products.</p><div className="tag-list skills-grid">{skills.map(([name, icon]) => <span key={name}><Icon icon={icon} aria-hidden="true" /> {name}</span>)}</div></section>;
 }

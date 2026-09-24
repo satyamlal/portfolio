@@ -25,6 +25,9 @@ export const openSource = {
 
 export const contact = {};
 
+// Change this value to update the browser tab and social preview title.
+export const siteTitle = "Satyam Lal | Full Stack Developer";
+
 export const socialLinks: SocialLinksType = {
   email: "mailto:l.satyam@op.iitg.ac.in",
   linkedin: "https://www.linkedin.com/in/satyamlal/",
@@ -40,7 +43,7 @@ export const skillsSection: SkillsSectionType = {
   data: [
     {
       title: "Full Stack Development",
-      lottieAnimationFile: "/lottie/skills/fullstack.json", // Path of Lottie Animation JSON File
+      lottieAnimationFile: "/lottie/skills/fullstack.json",
       skills: [
         emoji("⚡ Building responsive Single-Page-Apps (SPA) & PWA in React.js"),
         emoji("⚡ Building responsive static websites using Next.js"),
@@ -90,8 +93,8 @@ export const skillsSection: SkillsSectionType = {
 
 export const SkillBars: SkillBarsType[] = [
   {
-    Stack: "Frontend/Design", //Insert stack or technology you have experience in
-    progressPercentage: "85", //Insert relative proficiency in percentage
+    Stack: "Frontend/Design",
+    progressPercentage: "85",
   },
   {
     Stack: "Backend",
@@ -116,36 +119,43 @@ export const educationInfo: EducationType[] = [
 
 export const experience: ExperienceType[] = [
   {
-    role: "Django Developer",
-    company: "Meganos Software",
-    companyLogo: "/img/icons/common/meganos.png",
-    date: "Aug 2022 - Present",
-    desc: "I crafted backends for diverse web apps, APIs, and WebSockets in e-commerce, podcasts, and property management. Managed server upkeep, deployments on Linux, Heroku, and AWS S3. Implemented PyTest for automated unit and integration testing, slashing 4 hours of manual testing each sprint, fortifying a dependable and flawless code foundation.",
+    role: "UI Designer - Remote",
+    company: "Digital Marketing Inside, USA",
+    companyLogo: "/img/icons/common/dmi.png",
+    date: "Jan 2021 - May 2022",
+    companyLink: "https://digitalmarketinginside.com",
+    liveDemo: { display: true, href: "/documents/dmi.pdf" },
+    github: { display: false, href: "" },
+    designLinks: [
+      { name: "BravoPaws", href: "https://www.instagram.com/bravopawsofficial/" },
+      { name: "AnimalHealthWarehouse", href: "https://www.instagram.com/animal_health_warehouse/" },
+      { name: "24hrSupplement", href: "https://www.instagram.com/24hoursupplement/" },
+    ],
+    desc: "I crafted UIs and Graphic designs along with developing shopify and wordpress websites for 5 different e-commerce brands. Helping the brands increase their sales by 40% in revenue.",
   },
   {
-    role: "Full Stack Developer",
-    company: "Duseca Software",
-    companyLogo: "/img/icons/common/duseca_software_logo.jpeg",
-    date: "Jan 2022 - Sept 2023",
-    desc: "Crafted robust mobile application backends employing Django, Python, and REST APIs. Leveraged Django REST Framework, PostgreSQL, AWS, Firebase, Stripe, and WebSocket for efficient development. Collaborated across teams to surpass client expectations. Designed intuitive UIs, empowering clients to effortlessly manage their applications with a visually captivating interface.",
+    role: "Full Stack Developer - Remote",
+    company: "The Solar Home",
+    companyLogo: "https://full-stack-home-solar.vercel.app/assets/logo-vi3uq4UW.svg",
+    date: "July 2024 - Jan 2025",
+    companyLink: "https://full-stack-home-solar.vercel.app/",
+    liveDemo: { display: true, href: "https://full-stack-home-solar.vercel.app/" },
+    github: { display: false, href: "" },
+    desc: "Crafting diverse web applications, I've elevated functionality and user engagement. Spearheaded Visual Portfolio, leveraging AI for captivating presentations from parsed text. Proficiently set up and optimized applications on Linux servers, guaranteeing smooth scalability and top-notch performance for seamless user experiences.",
+  },
+  {
+    role: "Full Stack Developer - Remote",
+    company: "LgaooPlants",
+    companyLogo: "https://lgaooplants.com/wp-content/uploads/2026/06/cropped-lgaooplants-offical-logo.png",
+    date: "May 2025 - Nov 2025",
+    companyLink: "https://lgaooplants.com/",
+    liveDemo: { display: true, href: "https://lgaooplants.com/" },
+    github: { display: false, href: "" },
+    desc: "Developed a modern web application for Lgaooplants using Next.js and TypeScript. Built a scalable backend with PostgreSQL and designed an intuitive, visually appealing UI to deliver a smooth and engaging user experience. Focused on responsive design, efficient data handling, and clean application architecture.",
     // descBullets: [
     // 	"Lorem ipsum dolor sit amet, consdfgectetur adipiscing elit",
     // 	"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     // ],
-  },
-  {
-    role: "Full Stack Developer",
-    company: "ZRTechnologies",
-    companyLogo: "/img/icons/common/zrtech.jpeg",
-    date: "Aug 2022 - Jun 2023",
-    desc: "Crafting diverse web applications, I've elevated functionality and user engagement. Spearheaded Visual Portfolio, leveraging AI for captivating presentations from parsed text. Proficiently set up and optimized applications on Linux servers, guaranteeing smooth scalability and top-notch performance for seamless user experiences.",
-  },
-  {
-    role: "Backend Developer",
-    company: "Bleed-AI",
-    companyLogo: "/img/icons/common/bleedAI.jpg",
-    date: "Sept 2021 - Oct 2021",
-    desc: "As a Django developer at Bleed AI, I integrated a computer vision AI model to process YouTube URLs on a website. I used Django Channels and Websockets to show real-time processing and implemented threading to run multiple instances of the AI model. I also used jQuery for UI rendering and deployed the website on a Heroku server.",
   },
 ];
 
@@ -196,7 +206,7 @@ export const feedbacks: FeedbackType[] = [
 
 // See object prototype on /types/section.ts page
 export const seoData: SEODataType = {
-  title: "Satyam Lal",
+  title: siteTitle,
   description: greetings.description,
   author: "Satyam Lal",
   image: "https://avatars.githubusercontent.com/u/59178380?v=4",

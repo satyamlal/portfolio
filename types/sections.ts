@@ -66,6 +66,19 @@ export type ExperienceType = {
   companyLogo: string;
   date: string;
   desc: string;
+  companyLink?: string;
+  designLinks?: Array<{
+    name: string;
+    href: string;
+  }>;
+  liveDemo?: {
+    display: boolean;
+    href: string;
+  };
+  github?: {
+    display: boolean;
+    href: string;
+  };
   descBullets?: string[];
 };
 

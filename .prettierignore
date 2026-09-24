@@ -2,5 +2,5 @@ public/lottie/
 .next
 .vscode
 ./dist
-styles/argon-design-system-react.css
+styles/design-system.css
 styles/vendor/**/*.css

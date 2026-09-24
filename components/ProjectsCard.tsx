@@ -8,7 +8,7 @@ const ProjectsCard = ({ name, desc, github, link }: ProjectType) => {
     <Col lg="6">
       <Card className="shadow-lg--hover shadow mt-4">
         <CardBody>
-          <div className="d-flex px-3">
+          <div className="d-flex app-inline-padding">
             <div className="pl-4">
               <h3>{name}</h3>
               <p className="description mt-3">{desc}</p>

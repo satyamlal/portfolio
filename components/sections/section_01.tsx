@@ -5,5 +5,47 @@ type HeroProps = SectionProps & { typedName: string };
 
 export default function Section01({ sectionRef, className, typedName }: HeroProps) {
   const resumeUrl = greetings.resumeLink !== "#" ? greetings.resumeLink : "https://drive.google.com/drive/my-drive";
-  return <section ref={sectionRef} className={`hero ${className}`}><SectionLabel number="01" /><h1>HI ALL,<br />I&apos;M<br /><span>{typedName}</span><b>_</b></h1><p className="hero-copy">I turn complex product and data challenges into clean, dependable systems that scale from first release to high-volume production.</p><div className="action-row"><a className="button" href={resumeUrl} target="_blank" rel="noreferrer">[ SEE MY RESUME ]</a><SocialButtons /></div><div className="stats is-active"><Stat value={18} suffix="+" label="HAPPY CLIENTS" /><Stat value={9} suffix="+" label="PROJECTS DONE" /><Stat value={100} suffix="%" label="SATISFACTION" /></div></section>;
+  return (
+    <section ref={sectionRef} className={`hero ${className}`}>
+      <div className="hero-content">
+        <SectionLabel number="01" />
+        <h1>HI ALL,<br />I&apos;M<br /><span>{typedName}</span><b>_</b></h1>
+        <p className="hero-copy">I turn complex product and data challenges into clean, dependable systems that scale from first release to high-volume production.</p>
+
+        <div className="action-row">
+          <a className="button" href={resumeUrl} target="_blank" rel="noreferrer">[ SEE MY RESUME ]</a>
+          <SocialButtons />
+        </div>
+      </div>
+
+      <div className="hero-stats">
+        <div className="stats is-active">
+          <Stat
+            value={5}
+            suffix="+"
+            label="Happy Clients"
+            numberStyle={{ fontSize: "1.75rem", color: "#ededed", fontStyle: "normal" }}
+            suffixStyle={{ fontSize: "1.75rem", color: "#ff3d00", fontStyle: "normal" }}
+            labelStyle={{ fontSize: ".5625rem", color: "#ededed", fontStyle: "normal" }}
+          />
+          <Stat
+            value={10}
+            suffix="+"
+            label="Projects Done"
+            numberStyle={{ fontSize: "1.75rem", color: "#ededed", fontStyle: "normal" }}
+            suffixStyle={{ fontSize: "1.75rem", color: "#ff3d00", fontStyle: "normal" }}
+            labelStyle={{ fontSize: ".5625rem", color: "#ededed", fontStyle: "normal" }}
+          />
+          <Stat
+            value={100}
+            suffix="%"
+            label="Satisfaction"
+            numberStyle={{ fontSize: "1.75rem", color: "#ededed", fontStyle: "normal" }}
+            suffixStyle={{ fontSize: "1.75rem", color: "#ff3d00", fontStyle: "normal" }}
+            labelStyle={{ fontSize: ".5625rem", color: "#ededed", fontStyle: "normal" }}
+          />
+        </div>
+      </div>
+    </section>
+  );
 }

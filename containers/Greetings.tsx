@@ -14,19 +14,9 @@ const Greetings = () => {
     <main>
       <div className="position-relative">
         <section className="section section-lg section-shaped pb-250">
-          <div className="shape shape-style-1 bg-gradient-info">
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
+          <div className="shape shape-style-1 bg-gradient-info" aria-hidden="true" />
           <Container className="py-lg-md d-flex">
-            <div className="col px-0">
+            <div className="col app-inline-none">
               <Row>
                 <Col lg="6">
                   <h1 className="display-3 text-white">{greetings.title + " "}</h1>

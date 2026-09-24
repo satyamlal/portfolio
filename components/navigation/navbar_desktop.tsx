@@ -7,15 +7,11 @@ export default function NavbarDesktop() {
       <a aria-label="GitHub" href={socialLinks.github} target="_blank" rel="noreferrer">
         <Icon icon="mdi:github" /> Github
       </a>
-      
+
       <a aria-label="LinkedIn" href={socialLinks.linkedin} target="_blank" rel="noreferrer">
         <Icon icon="mdi:linkedin" /> LinkedIn
       </a>
-      
-      <a aria-label="Instagram" href={socialLinks.instagram} target="_blank" rel="noreferrer">
-        <Icon icon="mdi:instagram" /> Instagram
-      </a>
-      
+
       <a className="contact-link" href="#contact">[ CONTACT ]</a>
     </nav>);
 }

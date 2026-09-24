@@ -1,16 +1,16 @@
 {
   "short_name": "Portfolio",
   "name": "Satyam's Portfolio",
-  "description": "A passionate Full Stack Web Developer and Mobile App Developer.",
+  "description": "A passionate Full Stack Web Developer.",
   "icons": [
     {
-      "src": "./favicon.png",
-      "type": "image/png",
+      "src": "/favicon.ico?v=2",
+      "type": "image/x-icon",
       "sizes": "192x192"
     },
     {
-      "src": "./favicon.png",
-      "type": "image/png",
+      "src": "/favicon.ico?v=2",
+      "type": "image/x-icon",
       "sizes": "512x512"
     }
   ],

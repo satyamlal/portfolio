@@ -10,6 +10,7 @@ function SEO() {
       <meta name="author" content={seoData.author} />
       <meta name="description" content={seoData.description} />
       <meta name="keywords" content={seoData.keywords.join(", ")} />
+      <link rel="icon" href="/favicon.ico?v=2" />
       <link rel="canonical" href={seoData.url} />
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
