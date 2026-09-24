@@ -10,7 +10,7 @@ export default function Section01({ sectionRef, className, typedName }: HeroProp
       <div className="hero-content">
         <SectionLabel number="01" />
         <h1>HI ALL,<br />I&apos;M<br /><span>{typedName}</span><b>_</b></h1>
-        <p className="hero-copy">I turn complex product and data challenges into clean, dependable systems that scale from first release to high-volume production.</p>
+        <p className="hero-copy">Building bridge between design & code, that scale from first release to high-volume production.</p>
 
         <div className="action-row">
           <a className="button" href={resumeUrl} target="_blank" rel="noreferrer">[ SEE MY RESUME ]</a>

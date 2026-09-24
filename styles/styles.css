@@ -1,8 +1,46 @@
-/* Load the two fonts used by body text and headings. */
+/* ============================================================
+   FONT IMPORTS
+   ============================================================ */
+
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
 
+
+/* ============================================================
+   TABLE OF CONTENTS
+   01. Design Tokens      (CSS custom properties — desktop defaults)
+   02. Base & Reset
+   03. Utility Classes
+   04. Navbar             (desktop layout; mobile in §14.3)
+   05. Shared Section Frame
+   06. Hero               — Section 01
+   07. Skills             — Section 02
+   08. Education          — Section 03
+   09. Experience         — Section 04
+   10. Projects           — Section 05
+   11. Contact            — Section 06
+   12. Animations & Keyframes
+   13. Accessibility
+   14. Mobile Overrides   @media (max-width: 43.75rem)
+       14.1 Design Tokens (mobile)
+       14.2 Base
+       14.3 Navbar
+       14.4 Hero
+       14.5 Shared Section Frame
+       14.6 Skills
+       14.7 Grids — collapse all to 1-col
+       14.8 Contact
+       14.9 Utility
+   ============================================================ */
+
+
+/* ============================================================
+   01. DESIGN TOKENS
+       These are the DESKTOP defaults.
+       Mobile overrides live in §14.1.
+   ============================================================ */
+
 :root {
-    /* Core brand colors. */
+    /* ── Brand colors ── */
     --black: #080909;
     --panel: #101111;
     --white: #ededed;
@@ -10,28 +48,37 @@
     --orange: #ff3d00;
     --line: #272727;
 
-    /* Desktop spacing and typography controls. */
+    /* ── Desktop spacing ── */
     --body-padding-inline: 3.125rem;
     --section-padding-inline: clamp(1.125rem, 4vw, 3.25rem);
+
+    /* ── Desktop stats typography ── */
     --stats-value-size: 1.75rem;
     --stats-label-size: .5625rem;
+
+    /* ── Hero spacing ── */
     --hero-content-padding-top: clamp(6rem, 19vh, 10rem);
     --hero-content-padding-bottom: 1.625rem;
     --hero-stats-padding-top: 2.375rem;
     --hero-stats-padding-bottom: 3rem;
 }
 
-/* Use predictable sizing for every element. */
+
+/* ============================================================
+   02. BASE & RESET
+   ============================================================ */
+
+/* Predictable box model everywhere */
 * {
     box-sizing: border-box;
 }
 
-/* Enable smooth in-page anchor navigation. */
+/* Smooth anchor scroll */
 html {
     scroll-behavior: smooth;
 }
 
-/* Global page canvas, text defaults, and background grid. */
+/* Global canvas — dark bg, dot-grid overlay, text defaults */
 body {
     margin: 0;
     padding-inline: var(--body-padding-inline);
@@ -40,28 +87,63 @@ body {
     font-family: var(--body-font);
     font-size: .75rem;
     letter-spacing: var(--body-letter-spacing);
-    background-image: linear-gradient(rgba(255, 255, 255, .025) .0625rem, transparent .0625rem), linear-gradient(90deg, rgba(255, 255, 255, .025) .0625rem, transparent .0625rem);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, .025) .0625rem, transparent .0625rem),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) .0625rem, transparent .0625rem);
     background-size: 2rem 2rem;
 }
 
-/* Remove default link decoration while preserving inherited text color. */
+/* Strip underlines; inherit text color */
 a {
     color: inherit;
     text-decoration: none;
 }
 
-/* Selection colors follow the orange brand color. */
+/* Brand-orange text selection */
 ::selection {
     color: #000;
     background: var(--orange);
 }
 
-/* Keep the page shell at least as tall as the viewport. */
+/* Shared heading reset */
+h1,
+h2 {
+    margin: 0;
+    font-family: var(--heading-font);
+    font-weight: 700;
+    letter-spacing: var(--heading-letter-spacing);
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+}
+
+/* Muted body copy */
+p {
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+
+/* ============================================================
+   03. UTILITY CLASSES
+   ============================================================ */
+
+/* Page shell — at least viewport-tall */
 .portfolio-shell {
     min-height: 100vh;
 }
 
-/* Reusable rem-based padding helpers for legacy Bootstrap layouts. */
+/* Content width cap */
+main {
+    width: min(100%, 80rem);
+    margin: auto;
+}
+
+/* Legacy Bootstrap spacing helpers */
 .app-inline-padding {
     padding-inline: 1rem;
 }
@@ -70,7 +152,43 @@ a {
     padding-inline: 0;
 }
 
-/* Desktop site header layout. */
+/* Orange accent text — brand, headings, labels, project IDs */
+.brand span,
+h3 span,
+h2 span,
+.section-label span,
+.project-card small {
+    color: var(--orange);
+}
+
+/* Shared interactive border baseline
+   — nav links, social buttons, .button, .email, project action links */
+.site-header nav a,
+.social-buttons a,
+.button,
+.email,
+.project-card a {
+    border: .0625rem solid var(--line);
+    padding: .5rem .75rem;
+    font-size: .625rem;
+    letter-spacing: .08em;
+}
+
+/* Default hover — orange text + border */
+.site-header nav a:hover,
+.social-buttons a:hover,
+.button:hover,
+.project-card a:hover {
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+
+/* ============================================================
+   04. NAVBAR — DESKTOP
+       Mobile navbar overrides live in §14.3.
+   ============================================================ */
+
 .site-header {
     position: relative;
     z-index: 10;
@@ -84,13 +202,13 @@ a {
     padding: 0 var(--section-padding-inline);
 }
 
-/* Hide mobile navigation controls on desktop. */
+/* Hidden on desktop; mobile §14.3 enables them */
 .menu-toggle,
 .mobile-menu {
     display: none;
 }
 
-/* Shared horizontal layout for brand, navigation, social links, and actions. */
+/* Horizontal flex groups */
 .brand,
 .site-header nav,
 .social-buttons,
@@ -100,7 +218,7 @@ a {
     gap: .625rem;
 }
 
-/* Brand name styling. */
+/* Brand logotype */
 .brand {
     font-variant-caps: all-petite-caps;
     font-size: large;
@@ -108,28 +226,7 @@ a {
     letter-spacing: .08em;
 }
 
-/* Orange accent text used by labels, headings, and project identifiers. */
-.brand span,
-h3 span,
-h2 span,
-.section-label span,
-.project-card small {
-    color: var(--orange);
-}
-
-/* Shared borders, padding, and label typography for interactive controls. */
-.site-header nav a,
-.social-buttons a,
-.button,
-.email,
-.project-card a {
-    border: .0625rem solid var(--line);
-    padding: .5rem .75rem;
-    font-size: .625rem;
-    letter-spacing: .08em;
-}
-
-/* Keep navigation and social buttons centered with stable dimensions. */
+/* Nav + social pill centering */
 .site-header nav a,
 .social-buttons a {
     display: inline-flex;
@@ -139,94 +236,70 @@ h2 span,
     min-height: 2.125rem;
 }
 
-/* Space each desktop navigation icon from its label. */
+/* Gap between desktop nav icon and label */
 .desktop-navbar a {
     gap: .5rem;
 }
 
-/* Navigation and social icon dimensions. */
+/* Nav + social icon size */
 .site-header nav a svg,
 .social-buttons a svg {
     width: 1rem;
     height: 1rem;
 }
 
-/* Default hover border and accent color for links and buttons. */
-.site-header nav a:hover,
-.social-buttons a:hover,
-.button:hover,
-.project-card a:hover {
-    color: var(--orange);
-    border-color: var(--orange);
-}
-
-/* Orange hover surface for navigation and social buttons. */
+/* Orange fill on nav + social hover */
 .site-header nav a:hover,
 .social-buttons a:hover {
     background: var(--orange);
     color: #000;
 }
 
-/* Keep desktop navigation and hero social icons readable on orange hover. */
+/* Keep icon text readable on orange hover */
 .site-header .desktop-navbar a:hover,
 .action-row .social-buttons a:hover {
     color: #fff;
 }
 
-/* Button hover surface and text color. */
+/* Button fill on hover */
 .button:hover {
     background: var(--orange);
     color: #fff;
 }
 
-/* Separate the contact link from neighboring navigation items. */
+/* Contact link separated from nav items */
 .site-header .contact-link {
     margin-left: .625rem;
 }
 
-/* Constrain the main content width on large screens. */
-main {
-    width: min(100%, 80rem);
-    margin: auto;
+/* Shared icon base — tags, nav, social (1rem default) */
+.tag-list svg,
+.site-header nav svg,
+.social-buttons svg {
+    width: 1rem;
+    height: 1rem;
+    vertical-align: -.1875rem;
 }
 
-/* Shared section frame spacing and divider. */
+/* Skill tags get a slightly smaller icon than nav/social */
+.tag-list svg {
+    width: .875rem;
+    height: .875rem;
+}
+
+
+/* ============================================================
+   05. SHARED SECTION FRAME
+   ============================================================ */
+
+/* Shared padding and bottom divider for every section */
 .section-frame {
     position: relative;
     padding: clamp(2.375rem, 5vw, 4rem) var(--section-padding-inline) clamp(2.875rem, 6vw, 4.5rem);
     border-bottom: .0625rem solid var(--line);
 }
 
-/* The hero owns its height; its inner wrappers own their spacing. */
-.hero {
-    min-height: 100svh;
-    padding: 0;
-}
-
-/* Independent horizontal padding for the hero text and stats boxes. */
-.hero-content,
-.hero-stats {
-    padding-inline: var(--section-padding-inline);
-}
-
-/* hero content box controls. */
-.hero-content {
-    padding-top: var(--hero-content-padding-top);
-    padding-bottom: var(--hero-content-padding-bottom);
-}
-
-/* stats box controls. */
-.hero-stats {
-    padding-top: var(--hero-stats-padding-top);
-    padding-bottom: var(--hero-stats-padding-bottom);
-}
-
-/* Hide the large section number inside the hero. */
-.hero .section-label b {
-    display: none;
-}
-
-/* Section label alignment and typography. */
+/* Label row — section tag right, big number left */
 .section-label {
     display: flex;
     justify-content: space-between;
@@ -235,57 +308,81 @@ main {
     letter-spacing: .18em;
 }
 
-/* Decorative section number. */
+/* Decorative large section number */
 .section-label b {
     color: #252525;
     font-size: 3.625rem;
     line-height: .5;
 }
 
-/* Shared heading reset and heading font. */
-h1,
-h2 {
-    margin: 0;
-    font-family: var(--heading-font);
-    font-weight: 700;
-    letter-spacing: var(--heading-letter-spacing);
+/* Intro paragraph caps */
+.section-intro {
+    max-width: 38.75rem;
     text-transform: uppercase;
+    letter-spacing: .08em;
 }
 
-/* Hero heading size and spacing. */
+/* Shared card surface — education, experience, project */
+.education-card,
+.experience-card,
+.project-card {
+    background: rgba(20, 20, 20, .82);
+    border: .0625rem solid var(--line);
+}
+
+
+/* ============================================================
+   06. HERO — SECTION 01
+   ============================================================ */
+
+/* Hero owns its viewport height; inner wrappers own spacing */
+.hero {
+    min-height: 100svh;
+    padding: 0;
+}
+
+/* Section number hidden inside the hero */
+.hero .section-label b {
+    display: none;
+}
+
+/* Hero zones share inline padding */
+.hero-content,
+.hero-stats {
+    padding-inline: var(--section-padding-inline);
+}
+
+.hero-content {
+    padding-top: var(--hero-content-padding-top);
+    padding-bottom: var(--hero-content-padding-bottom);
+}
+
+.hero-stats {
+    padding-top: var(--hero-stats-padding-top);
+    padding-bottom: var(--hero-stats-padding-bottom);
+}
+
+/* Hero heading */
 h1 {
     font-size: clamp(3.625rem, 9vw, 7.625rem);
     line-height: .95;
     margin-bottom: 1.75rem;
 }
 
-/* Animated orange cursor after the typed name. */
+/* Blinking orange cursor after typed name */
 h1 b {
     color: var(--orange);
     animation: blink 1s steps(2, start) infinite;
 }
 
-/* Secondary heading size and spacing. */
+/* Section heading */
 h2 {
     font-size: clamp(2.375rem, 6vw, 4.5rem);
     line-height: 1;
     margin-bottom: 1.875rem;
 }
 
-/* Tertiary heading size and spacing. */
-h3 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    margin: 0 0 1rem;
-}
-
-/* Paragraph color and line height. */
-p {
-    color: var(--muted);
-    line-height: 1.65;
-}
-
-/* Hero description block. */
+/* Left-rule hero description block */
 .hero-copy {
     max-width: 34.375rem;
     border-left: .0625rem solid var(--line);
@@ -293,7 +390,7 @@ p {
     margin-bottom: 1.625rem;
 }
 
-/* Three-column statistics layout. */
+/* 3-column stat grid */
 .stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -301,20 +398,20 @@ p {
     border-top: .0625rem solid var(--line);
 }
 
-/* Individual statistic cell spacing and divider. */
+/* Stat cell spacing + right divider */
 .stats div {
     padding: 1.25rem 1.5rem;
     border-right: .0625rem solid var(--line);
 }
 
-/* Main statistic value styling. */
+/* Stat primary number */
 .stats strong {
     display: block;
     color: var(--white);
     font-size: var(--stats-value-size);
 }
 
-/* Statistic label styling. */
+/* Stat label (excludes .stat-suffix) */
 .stats>div>span:not(.stat-suffix) {
     display: block;
     color: var(--white);
@@ -323,11 +420,11 @@ p {
     margin-top: .3125rem;
 }
 
-/* Statistic number and suffix can be overridden per Stat component. */
 .stat-number {
     color: var(--white);
 }
 
+/* Orange unit suffix next to stat number */
 .stat-suffix {
     display: inline;
     color: var(--orange);
@@ -335,19 +432,16 @@ p {
     margin-left: .125rem;
 }
 
-/* Introductory copy used by content sections. */
-.section-intro {
-    max-width: 38.75rem;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-}
 
-/* Legacy skill-row spacing. */
+/* ============================================================
+   07. SKILLS — SECTION 02
+   ============================================================ */
+
 .skills-list {
     margin-top: 2.75rem;
 }
 
-/* Legacy two-column skill row layout. */
+/* Two-column skill row — left: description / right: tags */
 .skill-row {
     display: grid;
     grid-template-columns: 1.15fr .85fr;
@@ -358,18 +452,17 @@ p {
     animation: none;
 }
 
-/* Reveal legacy skill rows after their section becomes visible. */
+/* Animate skill rows when section enters viewport */
 .section-frame.is-visible .skill-row {
     animation: rise-in .4s ease both;
 }
 
-/* Skill row paragraph sizing. */
 .skill-row p {
     margin: .375rem 0;
     max-width: 35.625rem;
 }
 
-/* Flexible icon-tag layout. */
+/* Wrapping tag row */
 .tag-list {
     display: flex;
     align-content: flex-start;
@@ -378,12 +471,11 @@ p {
     padding-top: .25rem;
 }
 
-/* Skill section tag spacing. */
 .skills-grid {
     margin-top: 2.75rem;
 }
 
-/* Individual skill tag appearance. */
+/* Skill tag pill */
 .tag-list span {
     border: .0625rem solid var(--line);
     padding: .375rem .5rem;
@@ -392,29 +484,14 @@ p {
     transition: color .2s ease, border-color .2s ease, background-color .2s ease;
 }
 
-/* Shared icon sizing for tags, navigation, and social controls. */
-.tag-list svg,
-.site-header nav svg,
-.social-buttons svg {
-    width: 1rem;
-    height: 1rem;
-    vertical-align: -.1875rem;
-}
-
-/* Smaller icon size inside skill tags. */
-.tag-list svg {
-    width: .875rem;
-    height: .875rem;
-}
-
-/* Skill tag hover state. */
+/* Skill tag hover */
 .tag-list span:hover {
     color: var(--orange);
     border-color: var(--orange);
     background: rgba(255, 61, 14, .08);
 }
 
-/* Two-column proficiency meters on desktop. */
+/* 2-column proficiency meter grid */
 .proficiency-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -422,7 +499,7 @@ p {
     margin-top: 2.625rem;
 }
 
-/* Proficiency label and percentage alignment. */
+/* Meter label + percentage row */
 .meter div {
     display: flex;
     justify-content: space-between;
@@ -430,12 +507,12 @@ p {
     font-size: .625rem;
 }
 
-/* Orange proficiency percentage. */
+/* Orange percentage value */
 .meter b {
     color: var(--orange);
 }
 
-/* Empty proficiency track. */
+/* Empty track */
 .meter i {
     display: block;
     height: .1875rem;
@@ -443,7 +520,7 @@ p {
     margin-top: .625rem;
 }
 
-/* Filled proficiency track. */
+/* Filled track — starts at 0, animates to data value */
 .meter em {
     display: block;
     height: 100%;
@@ -452,25 +529,20 @@ p {
     transform: scaleX(0);
 }
 
-/* Animate proficiency tracks when the section appears. */
+/* Trigger fill animation when section is visible */
 .section-frame.is-visible .meter em {
     animation: fill-bar .4s ease both;
 }
 
-/* Shared card surface for education, experience, and projects. */
-.education-card,
-.experience-card,
-.project-card {
-    background: rgba(20, 20, 20, .82);
-    border: .0625rem solid var(--line);
-}
 
-/* Education card spacing. */
+/* ============================================================
+   08. EDUCATION — SECTION 03
+   ============================================================ */
+
 .education-card {
     padding: 1.5625rem;
 }
 
-/* Education title and metadata. */
 .education-card strong {
     display: block;
 }
@@ -481,20 +553,23 @@ p {
     margin-top: .625rem;
 }
 
-/* Two-column experience and project card grids. */
-.experience-grid,
-.project-grid {
+
+/* ============================================================
+   09. EXPERIENCE — SECTION 04
+   ============================================================ */
+
+/* 2-column experience card grid */
+.experience-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: .625rem;
 }
 
-/* Experience card padding. */
 .experience-card {
     padding: 1.25rem;
 }
 
-/* Experience heading logo, company, role, and date layout. */
+/* Logo + company + role + date row */
 .experience-heading {
     display: flex;
     gap: .75rem;
@@ -502,7 +577,7 @@ p {
     padding-bottom: .9375rem;
 }
 
-/* Experience company logo sizing. */
+/* Company logo thumbnail */
 .experience-heading img {
     width: 1.75rem;
     height: 1.75rem;
@@ -511,18 +586,18 @@ p {
     padding: .125rem;
 }
 
-/* Experience company name. */
+/* Company name */
 .experience-heading strong {
     display: block;
     text-transform: uppercase;
 }
 
-/* Clickable company name hover color. */
+/* Clickable company name */
 .company-link:hover {
     color: var(--orange);
 }
 
-/* Experience role text. */
+/* Role label */
 .experience-heading span {
     display: block;
     color: var(--orange);
@@ -531,7 +606,7 @@ p {
     margin-top: .3125rem;
 }
 
-/* Experience date text. */
+/* Date label */
 .experience-heading b {
     display: block;
     color: #c6a20d;
@@ -540,43 +615,39 @@ p {
     margin-top: .3125rem;
 }
 
-/* Experience description spacing. */
 .experience-card p {
     margin-bottom: .75rem;
 }
 
-/* Brand design link list inside an experience card. */
+/* Brand design link list */
 .design-links {
     margin: 0 0 1rem;
     padding-left: 1rem;
     color: var(--white);
 }
 
-/* Spacing between brand design links. */
 .design-links li {
     margin-bottom: .375rem;
 }
 
-/* Brand design link hover color. */
 .design-links a:hover {
     color: var(--orange);
 }
 
-/* Secondary text used by the view-designs label. */
+/* Muted "(view designs)" suffix */
 .design-links a span {
     color: var(--muted);
     font-size: .5625rem;
     margin-left: .25rem;
 }
 
-/* Keep Live Demo and GitHub actions on one wrapping row. */
+/* Live Demo / GitHub action row */
 .experience-actions {
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
 }
 
-/* Live Demo and GitHub action button appearance. */
 .live-demo {
     display: inline-block;
     border: .0625rem solid var(--line);
@@ -586,32 +657,42 @@ p {
     letter-spacing: .08em;
 }
 
-/* Live Demo and GitHub hover surface. */
 .live-demo:hover {
     color: #fff;
     border-color: var(--orange);
     background: var(--orange);
 }
 
-/* Project card size and hover animation. */
+
+/* ============================================================
+   10. PROJECTS — SECTION 05
+   ============================================================ */
+
+/* 2-column project card grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .625rem;
+}
+
+/* Card lifts on hover */
 .project-card {
     padding: 1.25rem;
     min-height: 11.875rem;
     transition: box-shadow .2s ease, border-color .2s ease, transform .2s ease;
 }
 
-/* Project card lift and shadow on hover. */
 .project-card:hover {
     box-shadow: var(--hover-shadow);
     transform: translate(-.125rem, -.125rem);
 }
 
-/* Project identifier typography. */
+/* Project identifier label */
 .project-card small {
     font-size: .5625rem;
 }
 
-/* Project title divider and spacing. */
+/* Project title with bottom divider */
 .project-card h3 {
     margin: .75rem 0;
     font-size: .9375rem;
@@ -619,12 +700,12 @@ p {
     padding-bottom: .8125rem;
 }
 
-/* Reserve space for project descriptions. */
+/* Reserve height for description */
 .project-card p {
     min-height: 4.0625rem;
 }
 
-/* Project action links. */
+/* Action link pill */
 .project-card a {
     display: inline-block;
     margin-right: .4375rem;
@@ -632,7 +713,7 @@ p {
     padding: .375rem .5rem;
 }
 
-/* Project action icon sizing. */
+/* Action link icon */
 .project-card a img {
     width: .6875rem;
     height: .6875rem;
@@ -640,44 +721,48 @@ p {
     filter: invert(1);
 }
 
-/* Contact section desktop columns. */
+
+/* ============================================================
+   11. CONTACT — SECTION 06
+   ============================================================ */
+
+/* 2-column: copy left, portrait right */
 .contact-section {
     display: grid;
     grid-template-columns: 1fr 13.75rem;
     gap: 3.125rem;
 }
 
-/* Contact section label position. */
+/* Section label pinned inside the contact frame */
 .contact-section .section-label {
     position: absolute;
     inset: 4.625rem 2.125rem auto;
 }
 
-/* Contact content top offset. */
+/* Right-column top offset */
 .contact-section>div:nth-of-type(2) {
     padding-top: 3.4375rem;
 }
 
-/* Contact heading size. */
+/* Larger contact heading */
 .contact-section h2 {
     font-size: clamp(2.625rem, 6vw, 4.875rem);
 }
 
-/* Email action link. */
+/* Email CTA — border style comes from §03 shared baseline */
 .email {
     display: inline-block;
     margin: 1rem 0;
     transition: color .2s ease, background-color .2s ease, border-color .2s ease;
 }
 
-/* Email hover surface. */
 .email:hover {
     background: var(--orange);
     border-color: var(--orange);
     color: #fff;
 }
 
-/* Contact portrait dimensions and treatment. */
+/* Grayscale portrait */
 .portrait {
     width: 11.875rem;
     height: 11.875rem;
@@ -687,18 +772,24 @@ p {
     align-self: center;
 }
 
-/* Page-load animation for the header and hero. */
+
+/* ============================================================
+   12. ANIMATIONS & KEYFRAMES
+   ============================================================ */
+
+/* Page-load entrance for header and hero */
 .site-header,
 .hero {
     animation: rise-in .3s ease both;
 }
 
-/* Hide section children until their section enters the viewport. */
+/* Section children hidden until their section enters viewport */
 .section-frame:not(.hero)>* {
     opacity: 0;
     animation: none;
 }
 
+/* Reveal children when JS adds .is-visible */
 .section-frame.is-visible>* {
     opacity: 0;
     animation: rise-in .3s ease .08s both;
@@ -739,7 +830,12 @@ p {
     }
 }
 
-/* Reduced-motion accessibility preference. */
+
+/* ============================================================
+   13. ACCESSIBILITY
+   ============================================================ */
+
+/* Kill all motion for users who opt out */
 @media (prefers-reduced-motion: reduce) {
 
     *,
@@ -752,11 +848,18 @@ p {
     }
 }
 
-/* Mobile-only design tokens and layout overrides. */
+
+/* ============================================================
+   14. MOBILE OVERRIDES  (max-width: 43.75rem / 700px)
+       Overrides §01–11 desktop defaults above.
+       Sub-grouped to mirror the desktop section order.
+   ============================================================ */
+
 @media (max-width: 43.75rem) {
+
+    /* ── 14.1  Design Tokens (Mobile) ── */
     :root {
-        /* Mobile spacing and typography controls. */
-        --body-padding-inline: 0.125rem;
+        --body-padding-inline: .125rem;
         --section-padding-inline: 1.125rem;
         --stats-value-size: 1.3125rem;
         --stats-label-size: .5625rem;
@@ -767,45 +870,23 @@ p {
         --hero-stats-padding-bottom: 0;
     }
 
-    /* Smaller mobile body text. */
+    /* ── 14.2  Base (Mobile) ── */
     body {
         font-size: .6875rem;
     }
 
-    /* Mobile header height and horizontal padding. */
+    /* ── 14.3  Navbar (Mobile) ── */
     .site-header {
         height: 3.625rem;
         padding-inline: var(--section-padding-inline);
     }
 
-    /* Replace desktop navigation with the mobile menu trigger. */
+    /* Hide desktop nav; hamburger takes over */
     .site-header nav {
         display: none;
     }
 
-    /* Mobile hero viewport sizing. */
-    .hero {
-        min-height: calc(100svh - 3.625rem);
-    }
-
-    /* Mobile hero heading size. */
-    h1 {
-        font-size: 3.3125rem;
-    }
-
-    /* Mobile stats spacing. */
-    .stats {
-        margin-top: 18rem;
-        margin-left: -1rem;
-        margin-right: -1rem;
-    }
-
-    /* Mobile stat cell padding. */
-    .stats div {
-        padding: 1rem .75rem;
-    }
-
-    /* Mobile menu trigger button. */
+    /* Hamburger trigger */
     .menu-toggle {
         display: inline-flex;
         width: 2.25rem;
@@ -820,7 +901,7 @@ p {
         cursor: pointer;
     }
 
-    /* Lines inside the mobile menu trigger. */
+    /* Hamburger lines */
     .menu-toggle span {
         display: block;
         width: 1rem;
@@ -829,7 +910,7 @@ p {
         transition: transform .2s ease, opacity .2s ease;
     }
 
-    /* Mobile menu trigger open-state transforms. */
+    /* Hamburger → X transform */
     .menu-toggle.is-open span:first-child {
         transform: translateY(.3125rem) rotate(45deg);
     }
@@ -842,7 +923,7 @@ p {
         transform: translateY(-.3125rem) rotate(-45deg);
     }
 
-    /* Mobile dropdown panel. */
+    /* Mobile dropdown panel */
     .mobile-menu {
         position: absolute;
         display: block;
@@ -854,7 +935,7 @@ p {
         border-top: 0;
     }
 
-    /* Mobile dropdown links. */
+    /* Mobile nav link row */
     .mobile-menu-link {
         display: flex;
         align-items: center;
@@ -866,24 +947,52 @@ p {
         font-weight: 600;
     }
 
-    /* Mobile dropdown hover state. */
     .mobile-menu-link:hover {
         color: var(--orange);
         background: rgba(255, 61, 0, .08);
     }
 
-    /* Mobile dropdown icon size. */
     .mobile-menu-link svg {
         width: 1rem;
         height: 1rem;
     }
 
-    /* Mobile section number size. */
+    /* ── 14.4  Hero (Mobile) ── */
+    .hero {
+        min-height: calc(100svh - 3.625rem);
+    }
+
+    h1 {
+        font-size: 3.3125rem;
+    }
+
+    /* Push stats below hero text on mobile */
+    .stats {
+        margin-top: 18rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+
+    .stats div {
+        padding: 1rem .75rem;
+    }
+
+    /* ── 14.5  Shared Section Frame (Mobile) ── */
     .section-label b {
         font-size: 2.625rem;
     }
 
-    /* Stack content grids into one column on mobile. */
+    /* ── 14.6  Skills (Mobile) ── */
+    .skill-row {
+        padding: 1.5rem 0;
+    }
+
+    /* Remove top padding after tag list loses its column gap */
+    .tag-list {
+        padding-top: 0;
+    }
+
+    /* ── 14.7  Grids (Mobile — all collapse to single column) ── */
     .skill-row,
     .proficiency-grid,
     .experience-grid,
@@ -893,33 +1002,21 @@ p {
         gap: 1.25rem;
     }
 
-    /* Mobile legacy skill row padding. */
-    .skill-row {
-        padding: 1.5rem 0;
-    }
-
-    /* Remove extra tag padding after stacking. */
-    .tag-list {
-        padding-top: 0;
-    }
-
-    /* Mobile contact label position. */
+    /* ── 14.8  Contact (Mobile) ── */
     .contact-section .section-label {
         inset: 2.375rem 1.125rem auto;
     }
 
-    /* Mobile contact content offset. */
     .contact-section>div:nth-of-type(2) {
         padding-top: 3.25rem;
     }
 
-    /* Smaller mobile portrait. */
     .portrait {
         width: 8.125rem;
         height: 8.125rem;
     }
 
-    /* Allow hero actions to wrap on narrow screens. */
+    /* ── 14.9  Utility (Mobile) ── */
     .action-row {
         flex-wrap: wrap;
     }
