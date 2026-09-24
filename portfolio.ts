@@ -119,6 +119,30 @@ export const educationInfo: EducationType[] = [
 
 export const experience: ExperienceType[] = [
   {
+    role: "Full Stack Developer - Remote",
+    company: "LgaooPlants",
+    companyLogo: "https://lgaooplants.com/wp-content/uploads/2026/06/cropped-lgaooplants-offical-logo.png",
+    date: "May 2025 - Nov 2025",
+    companyLink: "https://lgaooplants.com/",
+    liveDemo: { display: true, href: "https://lgaooplants.com/" },
+    github: { display: false, href: "" },
+    desc: "Developed a modern web application for Lgaooplants using Next.js and TypeScript. Built a scalable backend with PostgreSQL and designed an intuitive, visually appealing UI to deliver a smooth and engaging user experience. Focused on responsive design, efficient data handling, and clean application architecture.",
+    // descBullets: [
+    // 	"Lorem ipsum dolor sit amet, consdfgectetur adipiscing elit",
+    // 	"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    // ],
+  },
+  {
+    role: "Full Stack Developer - Remote",
+    company: "The Solar Home",
+    companyLogo: "https://full-stack-home-solar.vercel.app/assets/logo-vi3uq4UW.svg",
+    date: "July 2024 - Jan 2025",
+    companyLink: "https://full-stack-home-solar.vercel.app/",
+    liveDemo: { display: true, href: "https://full-stack-home-solar.vercel.app/" },
+    github: { display: false, href: "" },
+    desc: "Crafting diverse web applications, I've elevated functionality and user engagement. Spearheaded Visual Portfolio, leveraging AI for captivating presentations from parsed text. Proficiently set up and optimized applications on Linux servers, guaranteeing smooth scalability and top-notch performance for seamless user experiences.",
+  },
+  {
     role: "UI Designer - Remote",
     company: "Digital Marketing Inside, USA",
     companyLogo: "/img/icons/common/dmi.png",
@@ -132,30 +156,6 @@ export const experience: ExperienceType[] = [
       { name: "24hrSupplement", href: "https://www.instagram.com/24hoursupplement/" },
     ],
     desc: "I crafted UIs and Graphic designs along with developing shopify and wordpress websites for 5 different e-commerce brands. Helping the brands increase their sales by 40% in revenue.",
-  },
-  {
-    role: "Full Stack Developer - Remote",
-    company: "The Solar Home",
-    companyLogo: "https://full-stack-home-solar.vercel.app/assets/logo-vi3uq4UW.svg",
-    date: "July 2024 - Jan 2025",
-    companyLink: "https://full-stack-home-solar.vercel.app/",
-    liveDemo: { display: true, href: "https://full-stack-home-solar.vercel.app/" },
-    github: { display: false, href: "" },
-    desc: "Crafting diverse web applications, I've elevated functionality and user engagement. Spearheaded Visual Portfolio, leveraging AI for captivating presentations from parsed text. Proficiently set up and optimized applications on Linux servers, guaranteeing smooth scalability and top-notch performance for seamless user experiences.",
-  },
-  {
-    role: "Full Stack Developer - Remote",
-    company: "LgaooPlants",
-    companyLogo: "https://lgaooplants.com/wp-content/uploads/2026/06/cropped-lgaooplants-offical-logo.png",
-    date: "May 2025 - Nov 2025",
-    companyLink: "https://lgaooplants.com/",
-    liveDemo: { display: true, href: "https://lgaooplants.com/" },
-    github: { display: false, href: "" },
-    desc: "Developed a modern web application for Lgaooplants using Next.js and TypeScript. Built a scalable backend with PostgreSQL and designed an intuitive, visually appealing UI to deliver a smooth and engaging user experience. Focused on responsive design, efficient data handling, and clean application architecture.",
-    // descBullets: [
-    // 	"Lorem ipsum dolor sit amet, consdfgectetur adipiscing elit",
-    // 	"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    // ],
   },
 ];
 
