@@ -4,7 +4,7 @@ import { SectionLabel, SectionProps, SocialButtons, Stat } from "./shared";
 type HeroProps = SectionProps & { typedName: string };
 
 export default function Section01({ sectionRef, className, typedName }: HeroProps) {
-  const resumeUrl = greetings.resumeLink !== "#" ? greetings.resumeLink : "https://drive.google.com/drive/my-drive";
+  const resumeUrl = greetings.resumeLink !== "#" ? greetings.resumeLink : "/documents/dmi.pdf";
   return (
     <section ref={sectionRef} className={`hero ${className}`}>
       <div className="hero-content">
