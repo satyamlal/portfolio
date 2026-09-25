@@ -45,12 +45,12 @@ export default function Section02({ sectionRef, className }: SectionProps) {
                         <div className="experience-actions">
                             {item.liveDemo?.display && (
                                 <a className="live-demo" href={item.liveDemo.href} target="_blank" rel="noreferrer">
-                                    ↗ LIVE DEMO
+                                    [↗ LIVE DEMO]
                                 </a>
                             )}
                             {item.github?.display && (
                                 <a className="live-demo" href={item.github.href} target="_blank" rel="noreferrer">
-                                    ↗ GitHub
+                                    [↗ GitHub]
                                 </a>
                             )}
                         </div>

@@ -70,6 +70,7 @@ export type ExperienceType = {
   designLinks?: Array<{
     name: string;
     href: string;
+    icon?: string;
   }>;
   liveDemo?: {
     display: boolean;

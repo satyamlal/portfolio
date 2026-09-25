@@ -108,9 +108,9 @@ export const SkillBars: SkillBarsType[] = [
 
 export const educationInfo: EducationType[] = [
   {
-    schoolName: "University of Central Punjab",
-    subHeader: "Bachelor of Science in Computer Science",
-    duration: "September 2017 - April 2020",
+    schoolName: "Indian Institute of Technology, Guwahati",
+    subHeader: "Bachelor of Science in Data Science & Artificial Intelligence",
+    duration: "September 2024 - July 2028",
     desc: "",
     grade: "Grade A",
     descBullets: [], // Array of Strings
@@ -151,9 +151,21 @@ export const experience: ExperienceType[] = [
     liveDemo: { display: true, href: "/documents/dmi.pdf" },
     github: { display: false, href: "" },
     designLinks: [
-      { name: "BravoPaws", href: "https://www.instagram.com/bravopawsofficial/" },
-      { name: "AnimalHealthWarehouse", href: "https://www.instagram.com/animal_health_warehouse/" },
-      { name: "24hrSupplement", href: "https://www.instagram.com/24hoursupplement/" },
+      { 
+        name: "BravoPaws - [open Insta Page]", 
+        href: "https://www.instagram.com/bravopawsofficial/",
+        icon: "./img/icons/brands/bravopaws.svg", 
+      },
+      { 
+        name: "AnimalHealthWarehouse - [open Insta Page]", 
+        href: "https://www.instagram.com/animal_health_warehouse/", 
+        icon: "./img/icons/brands/bravopaws.svg", 
+      },
+      { 
+        name: "24hrSupplement - [open Insta Page]", 
+        href: "https://www.instagram.com/24hoursupplement/", 
+        icon: "./img/icons/brands/bravopaws.svg", 
+      },
     ],
     desc: "I crafted UIs and Graphic designs along with developing shopify and wordpress websites for 5 different e-commerce brands. Helping the brands increase their sales by 40% in revenue.",
   },
@@ -161,56 +173,45 @@ export const experience: ExperienceType[] = [
 
 export const projects: ProjectType[] = [
   {
-    name: "developer-portfolio",
-    desc: "Software Developer Portfolio Template built with react.js and next.js bootstrap that helps you showcase your work and skills as a software developer.",
-    github: "https://github.com/1Satyam100/developer-portfolio",
-    link: "https://developer-portfolio-1Satyam100.vercel.app/",
+    name: "Gazibo - Featured",
+    desc: "OnChain dApp Solana-Anchor based freelance workplace for everyone.",
+    github: "https://github.com/satyamlal/Gazibo",
+    link: "https://gazibo.vercel.app/", 
   },
   {
-    name: "Giebo",
-    desc: "A Podcast Platform where creators can easily publish and sell their podcasts, and users can purchase with Handcash BitcoinSV, the future of fast and secure transactions.",
-    link: "https://gibeo.io/",
-  },
-  {
-    name: "O Mejor Oferta",
-    desc: "O Mejor Oferta is a mobile marketplace for buying and selling items nearby, helping users find deals on things they want and make money from items they no longer need.",
-    link: "https://play.google.com/store/apps/details?id=com.duseca.mejor_oferta",
-  },
-  {
-    name: "Hooligan Culture",
-    desc: "A Ecommerce Platform, where shopping meets the future! With HandCash BitcoinSV integration, you can authenticate and purchase products with ease and confidence.",
-    link: "https://hooliganculture.com/",
+    name: "Talky",
+    desc: "Talky is a modern, anonymous chat platform where anyone start conversations without revealing their identity.",
+    link: "https://github.com/satyamlal/Talky",
   },
 ];
 
 export const feedbacks: FeedbackType[] = [
   {
-    name: "Syed Jamal",
-    role: "Frontend Developer at Meganos Software",
+    name: "Rishav Aggarwal",
+    role: "Video Editor",
     feedback:
-      "You were a wonderful addition to our team, alhumdulillah. I'm quite impressed with your abilities and professional practices. You approach problems from a unique perspective and always ask the right question. Finding a good teammate like Satyam is extremely difficult. He has contributed to the growth of our organization and continues to do so. May Allah bless you with everything you desire.",
+      "I'm quite impressed with his abilities and professional practices. You approach problems from a unique perspective and always ask the right question. He has contributed to the growth of our organization and continues to do so.",
   },
   {
-    name: "Wajahat Malek",
-    role: "CEO at Duseca Software",
+    name: "Saloni Mishra",
+    role: "Manager at Duseca Software",
     feedback:
-      "Satyam has a deep understanding of web development technologies and is adept at using them to build scalable, robust, and secure web applications. He has worked on various projects, ranging from small-scale to large-scale, and has shown his ability to work collaboratively with others while maintaining a high level of productivity and quality. Satyam is a pleasure to work with, and I have no doubt that he will be an asset to any team or organization. I highly recommend Satyam for any Full Stack Django, React.js, or Blockchain development projects, and I wish him all the best in his future endeavors.",
+      "Satyam has a deep understanding of web development technologies and is adept at using them to build scalable, robust, and secure web applications. He has worked on various projects, ranging from small-scale to large-scale, and has shown his ability to work collaboratively with others while maintaining a high level of productivity and quality.",
   },
   {
     name: "Zaid Zaffar",
-    role: "CEO at ZR Technologies",
+    role: "Architect at ZR Technologies",
     feedback:
-      "Very skilled at what he does and has an in depth knowledge of Django and he's always ready to handle any challenges thrown at him. He's been a valuable member of my team and i look forward to working with him in the years to come",
+      "Very skilled at what he does and has an in depth knowledge of web development and he's always ready to handle any challenges thrown at him.",
   },
 ];
 
-// See object prototype on /types/section.ts page
 export const seoData: SEODataType = {
   title: siteTitle,
   description: greetings.description,
   author: "Satyam Lal",
-  image: "https://avatars.githubusercontent.com/u/59178380?v=4",
-  url: "https://developer-portfolio-1Satyam100.vercel.app",
+  image: "https://avatars.githubusercontent.com/u/26645754?v=4",
+  url: "https://satyamlal.me/",
   keywords: [
     "Satyam Lal",
     "Portfolio",
