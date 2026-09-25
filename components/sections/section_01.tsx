@@ -24,25 +24,25 @@ export default function Section01({ sectionRef, className, typedName }: HeroProp
             value={5}
             suffix="+"
             label="Happy Clients"
-            numberStyle={{ fontSize: "1.75rem", color: "#ededed", fontStyle: "normal" }}
-            suffixStyle={{ fontSize: "1.75rem", color: "#ff3d00", fontStyle: "normal" }}
-            labelStyle={{ fontSize: ".5625rem", color: "#ededed", fontStyle: "normal" }}
+            numberStyle={{ fontSize: "2rem", color: "#ededed", fontStyle: "normal" }}
+            suffixStyle={{ fontSize: "2rem", color: "#ff3d00", fontStyle: "normal" }}
+            labelStyle={{ fontSize: "0.60rem", color: "#ededed", fontStyle: "normal" }}
           />
           <Stat
             value={10}
             suffix="+"
             label="Projects Done"
-            numberStyle={{ fontSize: "1.75rem", color: "#ededed", fontStyle: "normal" }}
-            suffixStyle={{ fontSize: "1.75rem", color: "#ff3d00", fontStyle: "normal" }}
-            labelStyle={{ fontSize: ".5625rem", color: "#ededed", fontStyle: "normal" }}
+            numberStyle={{ fontSize: "2rem", color: "#ededed", fontStyle: "normal" }}
+            suffixStyle={{ fontSize: "2rem", color: "#ff3d00", fontStyle: "normal" }}
+            labelStyle={{ fontSize: ".60rem", color: "#ededed", fontStyle: "normal" }}
           />
           <Stat
             value={100}
             suffix="%"
             label="Satisfaction"
-            numberStyle={{ fontSize: "1.75rem", color: "#ededed", fontStyle: "normal" }}
-            suffixStyle={{ fontSize: "1.75rem", color: "#ff3d00", fontStyle: "normal" }}
-            labelStyle={{ fontSize: ".5625rem", color: "#ededed", fontStyle: "normal" }}
+            numberStyle={{ fontSize: "2rem", color: "#ededed", fontStyle: "normal" }}
+            suffixStyle={{ fontSize: "2rem", color: "#ff3d00", fontStyle: "normal" }}
+            labelStyle={{ fontSize: ".60rem", color: "#ededed", fontStyle: "normal" }}
           />
         </div>
       </div>

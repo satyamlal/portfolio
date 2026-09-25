@@ -55,6 +55,15 @@
     --hero-content-padding-bottom: 6rem;
     --hero-stats-padding-top: 0rem;
     --hero-stats-padding-bottom: 0rem;
+
+    /* change email font size - Desktop only. */
+    --email-font-size: 1.5rem;
+
+    /* Mobile override in §14.1. §10 rules read these vars.
+        small = project ID label | h3 = project title | a = action link */
+    --project-small-size: .70rem;
+    --project-h3-size: 1.125rem;
+    --project-a-size: 0.80rem;
 }
 
 
@@ -121,7 +130,6 @@ p {
     line-height: 1.65;
 }
 
-
 /* ============================================================
     03. UTILITY CLASSES
    ============================================================ */
@@ -156,7 +164,9 @@ h2 span,
 }
 
 /* Shared interactive border baseline
-   — nav links, social buttons, .button, .email, project action links */
+    — nav links, social buttons, .button, .email, project action links
+    NOTE: font-size: 0.8rem here is a shared default.
+   .email and .project-card a override it with their own tokens in §11 / §10. */
 .site-header nav a,
 .social-buttons a,
 .button,
@@ -164,7 +174,7 @@ h2 span,
 .project-card a {
     border: .0625rem solid var(--line);
     padding: .5rem .75rem;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     letter-spacing: .08em;
 }
 
@@ -191,7 +201,7 @@ h2 span,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: min(100%, 80rem);
+    width: min(100%, 90rem);
     margin: auto;
     padding: 0 var(--section-padding-inline);
 }
@@ -217,7 +227,7 @@ h2 span,
     font-variant-caps: all-petite-caps;
     font-size: large;
     font-weight: 900;
-    letter-spacing: .08em;
+    letter-spacing: .125em;
 }
 
 /* Nav + social pill centering */
@@ -241,10 +251,10 @@ h2 span,
     height: 1.25rem;
 }
 
-/*social icon size */
+/* hero(section 01) social icon size */
 .social-buttons a svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 /* Orange fill on nav + social hover */
@@ -254,21 +264,21 @@ h2 span,
     color: #000;
 }
 
-/* Keep icon text readable on orange hover */
+/* icon color on hover */
 .site-header .desktop-navbar a:hover,
 .action-row .social-buttons a:hover {
     color: #fff;
 }
 
-/* Button fill on hover */
+/* see my resume button text color on hover */
 .button:hover {
     background: var(--orange);
     color: #fff;
 }
 
-/* Contact link separated from nav items */
+/* [Contact] separated from nav bar items */
 .site-header .contact-link {
-    margin-left: .625rem;
+    margin-left: .6rem;
 }
 
 /* Shared icon base — tags, nav, social (1rem default) */
@@ -278,12 +288,6 @@ h2 span,
     width: 1rem;
     height: 1rem;
     vertical-align: -.1875rem;
-}
-
-/* Skill tags get a slightly smaller icon than nav/social */
-.tag-list svg {
-    width: .875rem;
-    height: .875rem;
 }
 
 
@@ -384,7 +388,7 @@ h2 {
 /* Left-rule hero description block */
 .hero-copy {
     max-width: 34.375rem;
-    border-left: .0625rem solid var(--line);
+    border-left: .06rem solid var(--line);
     padding-left: .875rem;
     margin-bottom: 1.625rem;
 }
@@ -394,13 +398,13 @@ h2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 0;
-    border-top: .0625rem solid var(--line);
+    border-top: .06rem solid var(--line);
 }
 
 /* Stat cell spacing + right divider */
 .stats div {
     padding: 1.25rem 2.5rem;
-    border-right: .0625rem solid var(--line);
+    border-right: .06rem solid var(--line);
 }
 
 /* Stat primary number */
@@ -415,8 +419,8 @@ h2 {
     display: block;
     color: var(--white);
     font-size: var(--stats-label-size);
-    letter-spacing: .09em;
-    margin-top: .3125rem;
+    letter-spacing: .1em;
+    margin-top: .3rem;
 }
 
 .stat-number {
@@ -519,7 +523,7 @@ h2 {
     margin-top: .625rem;
 }
 
-/* Filled track — starts at 0, animates to data value */
+/* Filled track — starts at 0, JS sets --bar-fill before animation fires */
 .meter em {
     display: block;
     height: 100%;
@@ -686,15 +690,17 @@ h2 {
     transform: translate(-.125rem, -.125rem);
 }
 
-/* Project identifier label */
+/* §01 token --project-small-size controls this.
+   Desktop default: .70rem | Mobile override in §14.1 */
 .project-card small {
-    font-size: .70rem;
+    font-size: var(--project-small-size);
 }
 
-/* Project title with bottom divider */
+/* §01 token --project-h3-size controls this.
+   Desktop default: 1.125rem | Mobile override in §14.1 */
 .project-card h3 {
     margin: .75rem 0;
-    font-size: 1.125rem;
+    font-size: var(--project-h3-size);
     border-bottom: .0625rem solid var(--line);
     padding-bottom: .8125rem;
 }
@@ -704,11 +710,13 @@ h2 {
     min-height: 4.0rem;
 }
 
-/* Action link pill */
+/* §01 token --project-a-size controls this.
+   Overrides the 0.8rem shared baseline in §03.
+   Desktop default: 0.80rem | Mobile override in §14.1 */
 .project-card a {
     display: inline-block;
     margin-right: .4375rem;
-    font-size: 0.80rem;
+    font-size: var(--project-a-size);
     padding: .375rem .5rem;
 }
 
@@ -718,6 +726,12 @@ h2 {
     height: .80rem;
     vertical-align: -.0625rem;
     filter: invert(1);
+}
+
+/* Skills tags icon size */
+.tag-list svg {
+    width: .875rem;
+    height: .875rem;
 }
 
 
@@ -748,10 +762,14 @@ h2 {
     font-size: clamp(2.75rem, 6vw, 4.5rem);
 }
 
-/* Email CTA — border style comes from §03 shared baseline */
+/* Email CTA — §01 token --email-font-size controls size.
+   Overrides the 0.8rem shared baseline from §03.
+   Desktop default: 1rem | Mobile override in §14.1.
+   Border style comes from §03 shared baseline. */
 .email {
     display: inline-block;
     margin: 1rem 0;
+    font-size: var(--email-font-size);
     transition: color .2s ease, background-color .2s ease, border-color .2s ease;
 }
 
@@ -825,7 +843,7 @@ h2 {
     }
 
     to {
-        transform: scaleX(1);
+        transform: scaleX(var(--bar-fill, 1));
     }
 }
 
@@ -866,6 +884,14 @@ h2 {
         --hero-content-padding-bottom: 0;
         --hero-stats-padding-top: 0;
         --hero-stats-padding-bottom: 0;
+
+        /* change email font size - Mobile only. */
+        --email-font-size: 1rem;
+
+        /* Project card mobile font-sizes — change independently of desktop */
+        --project-small-size: .60rem;
+        --project-h3-size: 1rem;
+        --project-a-size: .70rem;
     }
 
     /* ── 14.2  Base (Mobile) ── */
